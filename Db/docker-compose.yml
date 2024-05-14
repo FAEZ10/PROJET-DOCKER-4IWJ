@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  adminer: 
+    build:
+        context: ./adminer
+        dockerfile: Dockerfile    
+    image: groupe7/adminer-custom:2.0.1
+    container_name: adminer
+    depends_on:
+      - postgres
+    ports:
+      - 81:80
+    networks:
+      - net-for-db
+
+  postgres: 
+    build:
+          context: ./postgres
+          dockerfile: Dockerfile
+    image: groupe7/pgsql-custom:1.0.5
+    container_name: postgres
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - ./database:/var/lib/postgresql/data
+    networks:
+      - net-for-db
+
+networks:
+  net-for-db:
+    name: back-db

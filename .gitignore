@@ -1,0 +1,9 @@
+.history/*
+.vscode/*
+
+#ignire database
+Db/database/*
+
+#ignore vendor folder of composer
+Symfony/app/vendor/*
+Symfony/app/.env

@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Groupe7 - Todo List{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 50px;
+            color: #333;
+        }
+        .todo-list {
+            list-style: none;
+            padding: 0;
+            margin: 20px auto;
+            max-width: 600px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .todo-item {
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .todo-item:last-child {
+            border-bottom: none;
+        }
+        .todo-item span {
+            flex: 1;
+        }
+        .todo-item .status {
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 20px;
+        }
+        .status-done {
+            background-color: #4CAF50;
+            color: #fff;
+        }
+        .status-not-done {
+            background-color: #FFC107;
+            color: #fff;
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+    <h1>Welcome to the Todo List</h1>
+
+    <ul class="todo-list">
+        {% for todo in todos %}
+            <li class="todo-item">
+                <span>{{ todo.title }}</span>
+                <span class="status {% if todo.done %}status-done{% else %}status-not-done{% endif %}">
+                    {% if todo.done %}Done{% else %}Not Done{% endif %}
+                </span>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
