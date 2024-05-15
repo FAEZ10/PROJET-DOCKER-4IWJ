@@ -1,7 +1,7 @@
-CREATE TABLE IF NOT EXISTS todos (
+CREATE TABLE IF NOT EXISTS todo (
   id SERIAL PRIMARY KEY,
-  titre VARCHAR(255),
+  title VARCHAR(255),
   done BOOLEAN
 );
 
-INSERT INTO todos (titre, done) VALUES ('Tâche 1', false), ('Tâche 2', true), ('Tâche 3', false);
+INSERT INTO todo (title, done) VALUES ('Tâche 1', false), ('Tâche 2', true), ('Tâche 3', false), ('Tâche 4', true), ('Tâche 5', false), ('Tâche 6', true);

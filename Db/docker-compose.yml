@@ -5,7 +5,7 @@ services:
     build:
         context: ./adminer
         dockerfile: Dockerfile    
-    image: groupe7/adminer-custom:2.0.1
+    image: group12/adminer-custom:2.0.1
     container_name: adminer
     depends_on:
       - postgres
@@ -18,7 +18,7 @@ services:
     build:
           context: ./postgres
           dockerfile: Dockerfile
-    image: groupe7/pgsql-custom:1.0.5
+    image: group12/pgsql-custom:1.0.5
     container_name: postgres
     environment:
       POSTGRES_DB: postgres

@@ -1,6 +1,6 @@
 FROM alpine:3.17.3
 
-# Ajouter PHP et les extensions nécessaires
+
 RUN apk --repository http://nl.alpinelinux.org/alpine/edge/testing/ add \
     wget \
     curl \
@@ -25,16 +25,15 @@ RUN apk --repository http://nl.alpinelinux.org/alpine/edge/testing/ add \
     && ln -s /usr/bin/php81 /usr/bin/php \
     && rm -rf /var/cache/apk/*
 
-# Installer Composer
+
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer
 
-# Définir le répertoire de travail
 WORKDIR /var/www/symfony
 
-# Exposer le port 9000
+
 EXPOSE 9000
 
-# Entrypoint pour le Composer
+
 ENTRYPOINT ["composer"]
 CMD ["--ansi"]
 
